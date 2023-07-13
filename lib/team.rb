@@ -40,4 +40,26 @@ class Team
           :player_count =>player_count
         }
     end
+
+    def average_cost_of_player
+        player_average = (total_value / player_count).to_s 
+
+        count = 0
+        player_average_format = ''
+
+        player_average.reverse.each_char do |char|
+            player_average_format = char + player_average_format
+            count += 1
+
+            if count % 3 == 0
+                player_average_format = ',' + player_average_format
+                count = 0
+            end
+        end
+        '$' + player_average_format
+    end
+
+    def players_by_last_name
+        
+    end
 end
